@@ -1,0 +1,4 @@
+server:
+  port: 8081
+gateway:
+  internal-secret: ${INTERNAL_HEADER_SECRET:dE8nP1qR4sT7vW0xY3zA6bC9fG2hJ5kL}

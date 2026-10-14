@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5436}/${DB_NAME:identity_db}
+    username: ${DB_USER:identity}
+    password: ${DB_PASSWORD:identity}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+jwt:
+  secret: ${JWT_SECRET:bA9pD4vE7fG2hJ5kL8mN1qR6sT3uW0xY}
+  expiration: 3600000

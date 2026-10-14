@@ -1,0 +1,24 @@
+server:
+  port: 8888
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: identity-service
+              uri: http://localhost:8080
+              predicates:
+                - Path=/identity/**
+              filters:
+                - StripPrefix=1
+            - id: product-service
+              uri: http://localhost:8081
+              predicates:
+                - Path=/products/**
+              filters:
+                - StripPrefix=1
+jwt:
+  secret: ${JWT_SECRET:bA9pD4vE7fG2hJ5kL8mN1qR6sT3uW0xY}
+gateway:
+  internal-secret: ${INTERNAL_HEADER_SECRET:dE8nP1qR4sT7vW0xY3zA6bC9fG2hJ5kL}
